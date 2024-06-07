@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../styles/AddTask.css";
 
 function AddTask() {
   const [addTask, setAddTask] = useState({
@@ -9,7 +10,10 @@ function AddTask() {
   const handleAddTask = async () => {
     await axios
       .post("http://localhost:5000/api/task/addTask", addTask)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        console.log(response.data);
+        window.location.reload();
+      })
       .catch((error) => console.error(error));
   };
 
@@ -22,16 +26,18 @@ function AddTask() {
       <div className="topic-container">
         <h1>Add Task</h1>
       </div>
-      <div className="inputfield-container">
-        <input
-          type="text"
-          placeholder="Add your tasks here"
-          onChange={handleChange}
-          value={addTask.task}
-        />
-      </div>
-      <div className="button-container">
-        <button onClick={handleAddTask}>Add Task</button>
+      <div className="task-Adding-container">
+        <div className="inputfield-container">
+          <input
+            type="text"
+            placeholder="Add your tasks here"
+            onChange={handleChange}
+            value={addTask.task}
+          />
+        </div>
+        <div className="button-container">
+          <button onClick={handleAddTask}>Add Task</button>
+        </div>
       </div>
     </div>
   );

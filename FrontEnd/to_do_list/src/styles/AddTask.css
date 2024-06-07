@@ -1,0 +1,49 @@
+.add-task-container {
+  width: 50%;
+  margin-left: 25%;
+  height: auto;
+}
+
+.topic-container {
+  width: 100%;
+  text-align: center;
+  background-color: bisque;
+  height: auto;
+}
+
+.task-Adding-container {
+  width: 100%;
+  align-items: center;
+  height: auto;
+}
+
+.inputfield-container {
+  width: 50%;
+  margin-left: 15%;
+  height: 50%;
+}
+
+.button-container {
+  width: 30%;
+  margin-left: 65%;
+  margin-top: -22px;
+}
+
+.inputfield-container input {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.button-container button {
+  background-color: black;
+  color: white;
+  margin-left: 10px;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: greenyellow;
+}
