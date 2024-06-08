@@ -66,4 +66,28 @@ const editTaskById = async (req, res) => {
     });
 };
 
-module.exports = { addTask, fetchAllTasks, deleteTaskById, editTaskById };
+//mark the task is completed
+const taskCompletedById = async (req, res) => {
+  const { completed } = req.body;
+  const completeTask = toDoModel.findById(req.params.id);
+  completeTask
+    .then((task) => {
+      if (!task) {
+        return res.status(404).json({ messege: "Task not found" });
+      }
+      task.completed = completed;
+      return task.save();
+    })
+    .then((updatedTask) => {
+      res.send(updatedTask);
+    })
+    .catch((error) => res.status(500).send(error));
+};
+
+module.exports = {
+  addTask,
+  fetchAllTasks,
+  deleteTaskById,
+  editTaskById,
+  taskCompletedById,
+};
