@@ -1,0 +1,66 @@
+.diplay-Task-Container {
+  padding: 20px;
+  background-color: bisque;
+  margin-top: 20px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.topic-Container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.task-Diplay {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.title-Container h3 {
+  margin: 0;
+}
+
+.button-Container {
+  display: flex;
+  gap: 10px;
+}
+
+#mark-Button,
+#edit-Button,
+#delete-Button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+#mark-Button {
+  background-color: #28a745;
+}
+
+#edit-Button {
+  background-color: #ffc107;
+}
+
+#delete-Button {
+  background-color: #dc3545;
+}
+
+#mark-Button:hover,
+#edit-Button:hover,
+#delete-Button:hover {
+  opacity: 0.5;
+}
