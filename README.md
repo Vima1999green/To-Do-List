@@ -1,2 +1,2 @@
 # To-Do-List
-A simple application for Add tasks,edit tasks,delete tasks with user authentication using MERN
+A simple application for Add tasks,edit tasks,delete tasks 
