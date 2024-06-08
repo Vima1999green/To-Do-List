@@ -7,16 +7,18 @@
 }
 
 .topic-Container {
-  margin-bottom: 20px;
   text-align: center;
 }
 
+.topic-Container h2 {
+  color: #28a745;
+}
 .task-Diplay {
   list-style-type: none;
   padding: 0;
 }
 
-.task-Item {
+.task-Item- {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,4 +65,16 @@
 #edit-Button:hover,
 #delete-Button:hover {
   opacity: 0.5;
+}
+
+.task-Item-completed {
+  background-color: pink;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }

@@ -17,7 +17,16 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundColor: "yellow",
+        height: "auto",
+        alignItems: "center",
+        padding: "40px",
+        paddingBottom: "250px",
+      }}
+    >
       <AddTask setAllTasks={setAllTasks} />
       <DisplayTask allTasks={allTasks} setAllTasks={setAllTasks} />
     </div>

@@ -19,3 +19,15 @@ export const editTask = async (taskId) => {
       throw error;
     });
 };
+
+export const markCompleteTask = async (taskId) => {
+  return axios
+    .put(`http://localhost:5000/api/task/completeTask/${taskId}`, {
+      completed: true,
+    })
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log(error);
+      throw error;
+    });
+};

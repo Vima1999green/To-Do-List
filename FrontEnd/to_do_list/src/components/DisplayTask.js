@@ -1,11 +1,12 @@
 import "../styles/DisplayTask.css";
 import { useState } from "react";
-import { deleteTask, editTask } from "./TaskSevices";
+import { deleteTask, editTask, markCompleteTask } from "./TaskSevices";
 
 function DisplayTask({ allTasks, setAllTasks }) {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTaskText, setEditedTaskText] = useState("");
 
+  //delete button functionalities
   const handleDeleteTask = (taskId) => {
     deleteTask(taskId)
       .then(() => {
@@ -17,11 +18,13 @@ function DisplayTask({ allTasks, setAllTasks }) {
       });
   };
 
+  //edit button functionalities
   const handleEditTask = (task) => {
     setEditingTaskId(task._id);
     setEditedTaskText(task.task);
   };
 
+  //save button functionaliies after editing a task
   const handleSaveTask = (taskId) => {
     editTask(taskId, editedTaskText)
       .then(() => {
@@ -31,6 +34,18 @@ function DisplayTask({ allTasks, setAllTasks }) {
           )
         );
         setEditingTaskId(null);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleMarkAsCompleted = (taskId) => {
+    markCompleteTask(taskId, true)
+      .then((updatedTask) => {
+        setAllTasks(
+          allTasks.map((task) => (task._id === taskId ? updatedTask : task))
+        );
       })
       .catch((error) => {
         console.error(error);
@@ -63,12 +78,17 @@ function DisplayTask({ allTasks, setAllTasks }) {
               </li>
             ) : (
               // if user does not click on the edit button he will see the tasks and three buttons
-              <li className="task-Item">
+              <li className={`task-Item-${task.completed ? "completed" : ""}`}>
                 <div className="title-Container">
                   <h3>{task.task}</h3>
                 </div>
                 <div className="button-Container">
-                  <button id="mark-Button">Mark as Completed</button>
+                  <button
+                    id="mark-Button"
+                    onClick={() => handleMarkAsCompleted(task._id)}
+                  >
+                    Mark as Completed
+                  </button>
                   <button id="edit-Button" onClick={() => handleEditTask(task)}>
                     Edit
                   </button>
