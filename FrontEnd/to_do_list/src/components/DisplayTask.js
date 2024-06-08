@@ -65,7 +65,7 @@ function DisplayTask({ allTasks, setAllTasks }) {
             {/* to check the user is click on the edit button.If this condition is true, it means the user has clicked the "Edit" button for this task,   */}
             {editingTaskId === task._id ? (
               // show the input field and save and cancel button to user when he click the edit button
-              <li className="task-Item">
+              <li className="task-Item-">
                 <input
                   type="text"
                   value={editedTaskText}
