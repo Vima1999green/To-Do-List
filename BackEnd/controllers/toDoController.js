@@ -45,4 +45,25 @@ const deleteTaskById = async (req, res) => {
     });
 };
 
-module.exports = { addTask, fetchAllTasks, deleteTaskById };
+//edit task by Id
+const editTaskById = async (req, res) => {
+  const taskId = req.params.id;
+  const updatedTask = req.body;
+  const editTask = toDoModel.findByIdAndUpdate(taskId, updatedTask, {
+    new: true,
+  });
+  editTask
+    .then((editedTask) => {
+      if (!editedTask) {
+        return res.status(404).json({ message: "Task not Found" });
+      }
+      res.status(200).json({ messege: "Task Updated Successfully" });
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .json({ messege: "An Error Occurerd", error: error.message });
+    });
+};
+
+module.exports = { addTask, fetchAllTasks, deleteTaskById, editTaskById };

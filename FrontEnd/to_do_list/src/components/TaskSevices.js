@@ -9,3 +9,13 @@ export const deleteTask = async (taskId) => {
       throw error;
     });
 };
+
+export const editTask = async (taskId) => {
+  return axios
+    .put(`http://localhost:5000/api/task/editTask/${taskId}`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log(error);
+      throw error;
+    });
+};
